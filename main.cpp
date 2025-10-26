@@ -33,8 +33,21 @@ int main() {
     fin1.close();
 
     list<Goat> trip;
-    for(int i = 0; i < 10; i++) add_goat(trip, names, colors);
-    display_trip(trip);
+
+    // create a while loop to go until the user chooses to stop
+    int choice = 0;
+    while(choice != 4){
+        choice = main_menu();
+        if(choice == 1){
+            add_goat(trip, names, colors);
+        }
+        if(choice == 2){
+            delete_goat(trip);
+        }
+        if(choice == 3){
+            display_trip(trip);
+        }
+    }
 
     return 0;
 }
@@ -46,8 +59,9 @@ int main_menu(){
     cout << "[2] Delete a goat" << endl;
     cout << "[3] List goats" << endl;
     cout << "[4] Quit" << endl;
-    cout << "Choice --> " << endl;
+    cout << "Choice --> ";
     cin >> choice;
+    cout << endl;
     return choice; 
 }
 
@@ -72,16 +86,18 @@ void delete_goat(list<Goat> &trip){
 
     cout << "What goat would you like to eliminate: " << endl;
     cin >> i;
+    cout << endl;
 
     // also need to check if it can even be taken out (if it is withijn the list bounds)
     while(i < 1 || i > trip.size()){
         cout << "This goat does not exist, try giving me a valid goat number: ";
         cin >> i;
+        cout << endl;
     }
 
     // use .erase() with .begin() 
     auto it = trip.begin();
-    for(int k = 0; k < i; k++){
+    for(int k = 0; k < i - 1; k++){
         it++;
     }
 
@@ -98,4 +114,6 @@ void display_trip(list<Goat> trip){
         cout << "[" << count << "] " << g.get_name() << " (" << g.get_age() << ", " << g.get_color() << ")" << endl;
         count++;
     }
+
+    cout << endl;
 }
