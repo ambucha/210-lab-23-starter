@@ -1,4 +1,4 @@
-// COMSC-210 | Lab 16 | Andrei Buchatskiy
+// COMSC-210 | Lab 23 | Andrei Buchatskiy
 // IDE used : Visual Studio Code
 
 #include <iostream>
@@ -38,3 +38,14 @@ int main() {
     return 0;
 }
 
+int main_menu(){
+    int choice;
+    cout << "*** GOAT MANAGER 3001 ***" << endl;
+    cout << "[1] Add a goat" << endl;
+    cout << "[2] Delete a goat" << endl;
+    cout << "[3] List goats" << endl;
+    cout << "[4] Quit" << endl;
+    cout << "Choice --> " << endl;
+    cin >> choice;
+    return choice; 
+}
