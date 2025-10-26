@@ -32,8 +32,9 @@ int main() {
     while (fin1 >> colors[i++]);
     fin1.close();
 
-
-
+    list<Goat> trip;
+    for(int i = 0; i < 10; i++) add_goat(trip, names, colors);
+    display_trip(trip);
 
     return 0;
 }
@@ -51,6 +52,32 @@ int main_menu(){
 }
 
 void add_goat(list<Goat> &trip, string names[], string colors[]){
+    // create a temportary Goat variable with random name, age, and color
     Goat temp(names[rand() % SZ_NAMES], rand() % MAX_AGE,colors[rand() % SZ_COLORS]);
+
+    // add this temporary varaible to the list
     trip.push_back(temp);
+}
+
+void delete_goat(list<Goat> &trip){
+    // start my displaying the goats in the trip atm
+    // wait i lowk need to check if the list is mepty frist befiore deleting anything
+    if(trip.empty()) {
+        cout << "No goats on the trip right now" << endl;
+        return;
+    }
+    
+    display_trip(trip);
+
+}
+
+void display_trip(list<Goat> trip){
+    // counter to display which goat you are on
+    int count = 1;
+
+    // for loop to go through each goat in the list and display its stats
+    for(Goat g : trip){
+        cout << "[" << count << "] " << g.get_name() << " (" << g.get_age() << ", " << g.get_color() << ")" << endl;
+        count++;
+    }
 }
