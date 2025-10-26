@@ -49,3 +49,8 @@ int main_menu(){
     cin >> choice;
     return choice; 
 }
+
+void add_goat(list<Goat> &trip, string names[], string colors[]){
+    Goat temp(names[rand() % SZ_NAMES], rand() % MAX_AGE,colors[rand() % SZ_COLORS]);
+    trip.push_back(temp);
+}
