@@ -66,9 +66,27 @@ void delete_goat(list<Goat> &trip){
         cout << "No goats on the trip right now" << endl;
         return;
     }
-    
-    display_trip(trip);
 
+    display_trip(trip);
+    int i;
+
+    cout << "What goat would you like to eliminate: " << endl;
+    cin >> i;
+
+    // also need to check if it can even be taken out (if it is withijn the list bounds)
+    while(i < 1 || i > trip.size()){
+        cout << "This goat does not exist, try giving me a valid goat number: ";
+        cin >> i;
+    }
+
+    // use .erase() with .begin() 
+    auto it = trip.begin();
+    for(int k = 0; k < i; k++){
+        it++;
+    }
+
+    // erase the goat at given choice
+    trip.erase(it);
 }
 
 void display_trip(list<Goat> trip){
