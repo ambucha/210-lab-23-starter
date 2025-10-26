@@ -1,3 +1,6 @@
+// COMSC-210 | Lab 16 | Andrei Buchatskiy
+// IDE used : Visual Studio Code
+
 #include <iostream>
 #include <fstream>
 #include <iomanip>
